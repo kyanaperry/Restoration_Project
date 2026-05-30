@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape from Kirtland: A Restoration History Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         HEADER / PROGRESS
+    ============================================================ -->
+    <header id="site-header">
+        <div id="header-left">
+            <span class="header-lock" id="header-lock">🕯️</span>
+            <span id="header-title">Escape from Kirtland</span>
+        </div>
+        <div id="header-right">
+            <div id="progress-steps">
+                <div class="step locked" id="step-1" title="Challenge 1: Crisis Timeline">1</div>
+                <div class="step-connector" id="conn-1"></div>
+                <div class="step locked" id="step-2" title="Challenge 2: Source Evaluation">2</div>
+                <div class="step-connector" id="conn-2"></div>
+                <div class="step locked" id="step-3" title="Challenge 3: Trials & Lessons">3</div>
+                <div class="step-connector" id="conn-3"></div>
+                <div class="step locked" id="step-4" title="Challenge 4: Modern Application">4</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         SCREEN 0: INTRO
+    ============================================================ -->
+    <div class="screen active" id="screen-intro">
+        <div class="intro-wrapper">
+            <div class="candles">🕯️&nbsp;&nbsp;&nbsp;🕯️&nbsp;&nbsp;&nbsp;🕯️</div>
+            <h1 class="game-title">Escape from Kirtland</h1>
+            <h2 class="game-subtitle">A Restoration History Experience &mdash; BYU REL C 225</h2>
+            <div class="intro-parchment">
+                <p class="flavor-text">
+                    <strong>January 12, 1838. Kirtland, Ohio. Midnight.</strong>
+                </p>
+                <p class="flavor-text">
+                    You are a faithful member of The Church of Jesus Christ of Latter-day Saints.
+                    The community you once called home is fracturing. The Kirtland Safety Society
+                    has collapsed amid a national economic panic. Trusted leaders have turned against the Prophet.
+                    A dissenter faction has seized the Kirtland Temple. Mobs roam the streets.
+                </p>
+                <p class="flavor-text">
+                    Tonight, Joseph Smith and Sidney Rigdon fled on horseback to escape arrest and mob violence.
+                    You must follow — but the road out of Kirtland is not easy. To safely join the Saints
+                    gathering in Missouri, you must prove you understand what happened here,
+                    and why faithful disciples chose to follow their Prophet into the unknown.
+                </p>
+                <div class="divider">— ✦ —</div>
+                <p class="intro-mission-title"><strong>To Escape Kirtland, You Must Complete Four Challenges:</strong></p>
+                <div class="key-list">
+                    <div class="key-item">🔑 <strong>Challenge 1 &mdash; The Restoration Timeline</strong><br>
+                        <span>Arrange the key events of the Restoration — from the First Vision to the Kirtland Temple — in correct chronological order.</span></div>
+                    <div class="key-item">🔑 <strong>Challenge 2 &mdash; Evaluating the Sources</strong><br>
+                        <span>Identify which historical sources about the Restoration are reliable, and why.</span></div>
+                    <div class="key-item">🔑 <strong>Challenge 3 &mdash; Revelation Matching</strong><br>
+                        <span>Match Doctrine and Covenants revelations to their Kirtland-era historical context.</span></div>
+                    <div class="key-item">🔑 <strong>Challenge 4 &mdash; Modern Application</strong><br>
+                        <span>Connect the principles of the Restoration to the living Church today.</span></div>
+                </div>
+                <div class="divider">— ✦ —</div>
+                <p class="course-outcomes">
+                    This experience connects to the four outcomes of <strong>REL C 225</strong>:<br>
+                    <em>Factual &nbsp;·&nbsp; Conceptual &nbsp;·&nbsp; Spiritual &nbsp;·&nbsp; Application</em>
+                </p>
+            </div>
+            <button class="btn-primary btn-large" onclick="startGame()">
+                🚪 &nbsp;Attempt the Escape
+            </button>
+            <p class="source-note">
+                Based on <em>Saints: The Standard of Truth</em>, the Joseph Smith Papers,
+                Church History Topics (ChurchofJesusChrist.org), and the BYU Religious Studies Center
+            </p>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 1: CHALLENGE 1 — CRISIS TIMELINE
+    ============================================================ -->
+    <div class="screen" id="screen-puzzle1">
+        <div class="puzzle-wrapper">
+            <div class="puzzle-header">
+                <div class="puzzle-badge">🔑 CHALLENGE 1 OF 4</div>
+                <h2 class="puzzle-title">The Restoration Timeline</h2>
+                <p class="puzzle-desc">
+                    Before you can flee, you must prove you know the full story of how the
+                    Restoration unfolded — from the Sacred Grove to the very temple now threatened
+                    outside your window. <strong>Drag the cards</strong> to arrange the eight key
+                    events in correct chronological order — earliest at the top, latest at the bottom.
+                </p>
+            </div>
+
+            <div class="timeline-area">
+                <div class="timeline-labels">
+                    <span class="label-earliest">⬆ Earliest</span>
+                    <span class="label-latest">Latest ⬇</span>
+                </div>
+                <div id="timeline-list" class="timeline-list">
+                    <!-- Populated by script.js -->
+                </div>
+            </div>
+
+            <div class="puzzle-controls">
+                <button class="btn-secondary" onclick="shuffleTimeline()">🔀 Reshuffle</button>
+                <button class="btn-primary" onclick="checkTimeline()">Check My Order ✓</button>
+            </div>
+            <div class="feedback-box" id="feedback-1"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 2: CHALLENGE 2 — SOURCE EVALUATION
+    ============================================================ -->
+    <div class="screen" id="screen-puzzle2">
+        <div class="puzzle-wrapper">
+            <div class="puzzle-header">
+                <div class="puzzle-badge">🔑 CHALLENGE 2 OF 4</div>
+                <h2 class="puzzle-title">Evaluating the Sources</h2>
+                <p class="puzzle-desc">
+                    On the road out of Kirtland, the truth must be defended — not just lived.
+                    A historian has gathered six sources about the Restoration. For each one,
+                    select the <strong>best description</strong> of its type and reliability.
+                    Think carefully about primary vs. secondary sources, bias, and corroboration.
+                </p>
+            </div>
+
+            <div id="source-cards" class="source-cards">
+                <!-- Populated by script.js -->
+            </div>
+
+            <div class="puzzle-controls">
+                <button class="btn-primary" onclick="checkSources()">Submit Evaluations ✓</button>
+            </div>
+            <div class="feedback-box" id="feedback-2"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 3: CHALLENGE 3 — TRIALS AND THEIR LESSONS
+    ============================================================ -->
+    <div class="screen" id="screen-puzzle3">
+        <div class="puzzle-wrapper">
+            <div class="puzzle-header">
+                <div class="puzzle-badge">🔑 CHALLENGE 3 OF 4</div>
+                <h2 class="puzzle-title">Revelation Matching</h2>
+                <p class="puzzle-desc">
+                    The revelations given in Kirtland are the light that guides you out.
+                    <strong>Click a revelation</strong> from the Doctrine and Covenants on
+                    the left, then click its matching historical context on the right.
+                    All five must be correctly paired before you can move on.
+                </p>
+            </div>
+
+            <div class="matching-area">
+                <div class="matching-col" id="col-revelations">
+                    <h3 class="col-title">📖 Revelations (D&amp;C)</h3>
+                    <div id="rev-items">
+                        <!-- Populated by script.js -->
+                    </div>
+                </div>
+                <div class="matching-middle">
+                    <div id="match-status-list">
+                        <!-- Match status -->
+                    </div>
+                </div>
+                <div class="matching-col" id="col-contexts">
+                    <h3 class="col-title">📜 Historical Context</h3>
+                    <div id="ctx-items">
+                        <!-- Populated by script.js -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="puzzle-controls">
+                <button class="btn-secondary" onclick="clearMatches()">↩ Clear All Matches</button>
+                <button class="btn-primary" onclick="checkMatching()">Submit Matches ✓</button>
+            </div>
+            <div class="feedback-box" id="feedback-3"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 4: CHALLENGE 4 — MODERN APPLICATION
+    ============================================================ -->
+    <div class="screen" id="screen-puzzle4">
+        <div class="puzzle-wrapper">
+            <div class="puzzle-header">
+                <div class="puzzle-badge">🔑 CHALLENGE 4 OF 4</div>
+                <h2 class="puzzle-title">Modern Application</h2>
+                <p class="puzzle-desc">
+                    The Restoration you carry out of Kirtland tonight is not just history —
+                    it is a living foundation for the Church today. Answer each question by
+                    connecting Restoration principles to <strong>modern faith and Church life</strong>.
+                </p>
+            </div>
+
+            <div id="modern-questions" class="modern-questions">
+                <!-- Populated by script.js -->
+            </div>
+
+            <div class="puzzle-controls">
+                <button class="btn-primary" onclick="checkModern()">Submit Answers ✓</button>
+            </div>
+            <div class="feedback-box" id="feedback-4"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN 5: FINAL REFLECTION — YOU ESCAPED
+    ============================================================ -->
+    <div class="screen" id="screen-final">
+        <div class="final-wrapper">
+            <div class="trophy-display">🌅</div>
+            <h1 class="final-title">You Have Escaped Kirtland!</h1>
+            <h2 class="final-subtitle">You Join the Saints on the Road to Missouri</h2>
+
+            <div class="escape-narrative">
+                <p>
+                    With the full story of the Restoration alive in your heart, you slip out of
+                    Kirtland under cover of darkness — following the path of your Prophet westward.
+                    You carry with you the truths that began in a grove of trees in 1820: a living
+                    God who speaks, a restored priesthood, a second testament of Jesus Christ, and
+                    a Church organized by revelation.
+                </p>
+                <p>
+                    No mob, no economic crisis, no apostate, and no persecution could take those
+                    things from you. The Restoration — from the First Vision to the Kirtland Temple
+                    and beyond — had established a foundation that would outlast every trial.
+                    The road to Missouri was hard. But the truth you carried was worth every step.
+                </p>
+            </div>
+
+            <div class="score-display" id="final-score-display">
+                <!-- Populated by script.js -->
+            </div>
+
+            <h3 class="outcomes-header">What You Learned: The Four Course Outcomes</h3>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <div class="outcome-icon">📚</div>
+                    <h4>Factual</h4>
+                    <p>You demonstrated knowledge of the major events of the Restoration — the First Vision (1820), Moroni's visits, receiving the plates, the restoration of the Aaronic and Melchizedek Priesthoods, the Book of Mormon's publication, the organization of the Church (1830), and the Kirtland Temple dedication (1836).</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-icon">🧠</div>
+                    <h4>Conceptual</h4>
+                    <p>You practiced evaluating historical sources using critical thinking — distinguishing primary accounts from secondary sources, recognizing bias, and identifying the difference between peer-reviewed scholarship and unsourced claims. These are essential skills for responsible Church history study.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-icon">✨</div>
+                    <h4>Spiritual</h4>
+                    <p>You connected key Doctrine and Covenants revelations — D&C 13, 76, 88, 89, and 110 — to their Kirtland-era historical contexts, deepening your appreciation for how the Lord restored His gospel "line upon line, precept upon precept" in this remarkable period.</p>
+                </div>
+                <div class="outcome-card">
+                    <div class="outcome-icon">🌍</div>
+                    <h4>Application</h4>
+                    <p>You connected the founding principles of the Restoration — the nature of God, priesthood authority, continuing revelation, the gathering of Israel, and the Book of Mormon — to the living Church of Jesus Christ today, showing that what began in 1820 is still unfolding.</p>
+                </div>
+            </div>
+
+            <div class="final-quote-block">
+                <blockquote>
+                    "The Standard of Truth has been erected; no unhallowed hand can stop
+                    the work from progressing; persecutions may rage, mobs may combine,
+                    armies may assemble, calumny may defame, but the truth of God will go
+                    forth boldly, nobly, and independent."
+                </blockquote>
+                <cite>— Joseph Smith, 1842 &nbsp;|&nbsp; <em>History of the Church</em> 4:540</cite>
+            </div>
+
+            <!-- Sources Section -->
+            <div class="sources-section">
+                <h3>📋 Sources Used</h3>
+                <ul class="sources-list">
+                    <li>
+                        <strong>Joseph Smith Papers Project</strong> — josephsmithpapers.org —
+                        Primary documents and scholarly annotations, including Joseph Smith's
+                        1832 and 1838–39 histories, journals, and revelation manuscripts.
+                    </li>
+                    <li>
+                        <strong><em>Saints: The Standard of Truth</em></strong> (Vol. 1) —
+                        The Church of Jesus Christ of Latter-day Saints, 2018 — Official
+                        narrative Church history from Joseph Smith's birth through the
+                        Nauvoo period.
+                        <br><em>ChurchofJesusChrist.org/study/history/saints-book/book-1</em>
+                    </li>
+                    <li>
+                        <strong>Church History Topics</strong> —
+                        ChurchofJesusChrist.org/study/history/topics — Scholarly articles
+                        on the First Vision, priesthood restoration, Kirtland Temple,
+                        Book of Mormon translation, and more.
+                    </li>
+                    <li>
+                        <strong>Doctrine and Covenants</strong> — Section introductions and
+                        historical context (D&C 13, 20, 76, 88, 89, 109, 110) —
+                        ChurchofJesusChrist.org/study/scriptures/dc-testament
+                    </li>
+                    <li>
+                        <strong>Pearl of Great Price — Joseph Smith–History</strong> —
+                        Scriptural primary source account of the First Vision (JS–H 1:14–20),
+                        Moroni's visits (1:29–49), and priesthood restoration (1:68–72).
+                        ChurchofJesusChrist.org/study/scriptures/pgp/js-h
+                    </li>
+                    <li>
+                        <strong>BYU Religious Studies Center</strong> — rsc.byu.edu —
+                        Peer-reviewed scholarly articles on Restoration history and doctrine,
+                        including Mark Staker's <em>Hearken, O Ye People</em>.
+                    </li>
+                    <li>
+                        <strong><em>Our Heritage: A Brief History of The Church of Jesus
+                        Christ of Latter-day Saints</em></strong> —
+                        The Church of Jesus Christ of Latter-day Saints, 1996.
+                        ChurchofJesusChrist.org
+                    </li>
+                </ul>
+            </div>
+
+            <div class="final-actions">
+                <button class="btn-primary btn-large" onclick="restartGame()">🔄 Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         ESCAPE OVERLAY (animation between challenges)
+    ============================================================ -->
+    <div id="unlock-overlay" class="unlock-overlay">
+        <div class="unlock-box">
+            <div class="unlock-anim" id="unlock-icon">🚪</div>
+            <div class="unlock-msg" id="unlock-msg">Challenge Complete!</div>
+            <div class="unlock-sub" id="unlock-sub">Moving forward on the road…</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -202,10 +202,10 @@ const matchingData = [
     },
     {
         id: 2,
-        revelation: 'D&C 88\n"The Olive Leaf" — given to the School of the Prophets, teaching about light, truth, the resurrection, and the order of the house of God.',
-        revShort: 'D&C 88 — The Olive Leaf',
-        context: 'Dec 1832–Jan 1833, Kirtland: Given to the School of the Prophets to prepare early Church leaders for teaching and ministry.',
-        ctxShort: 'School of the Prophets, Kirtland, 1832–33'
+        revelation: 'D&C 121\n"O God, where art thou?" — a revelation from Liberty Jail teaching about suffering, endurance, and righteous priesthood leadership.',
+        revShort: 'D&C 121 — Liberty Jail',
+        context: 'Mar 1839, Liberty, Missouri: Joseph Smith dictated this revelation while imprisoned, pleading for the suffering Saints and receiving words of peace and instruction.',
+        ctxShort: 'Joseph in Liberty Jail, Missouri, 1839'
     },
     {
         id: 3,
